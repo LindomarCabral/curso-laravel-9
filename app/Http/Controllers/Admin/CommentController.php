@@ -40,8 +40,8 @@ class CommentController extends Controller
         return view('users.comments.create', compact('user'));
     }
 
-    /*
-    public function store(StoreUpdateCommentRequest $request, $userId)
+
+    public function store(Request $request, $userId)
     {
         if (!$user = $this->user->find($userId)) {
             return redirect()->back();
@@ -54,7 +54,7 @@ class CommentController extends Controller
 
         return redirect()->route('comments.index', $user->id);
     }
-
+/*
     public function edit($userId, $id)
     {
         if (!$comment = $this->comment->find($id)) {

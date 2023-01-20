@@ -9,7 +9,7 @@
 
 @include('includes.validations-form')
 
-<form action="{{ route('users.store') }}" method="post">
+<form action="{{ route('comments.store', $user->id) }}" method="post">
     @include('users.comments._partials.form')
 </form>
 

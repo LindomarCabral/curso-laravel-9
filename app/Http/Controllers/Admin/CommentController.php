@@ -69,8 +69,8 @@ class CommentController extends Controller
     }
 
 
-    /*
-    public function update(StoreUpdateCommentRequest $request, $id)
+
+    public function update(Request $request, $id)
     {
         if (!$comment = $this->comment->find($id)) {
             return redirect()->back();
@@ -84,6 +84,6 @@ class CommentController extends Controller
         return redirect()->route('comments.index', $comment->user_id);
     }
 
-    */
+
 
 }

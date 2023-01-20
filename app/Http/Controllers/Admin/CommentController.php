@@ -11,23 +11,23 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     protected $comment;
-    //protected $model;
     protected $user;
 
     public function __construct(Comment $comment, User $user)
     {
-       // $this->model = $comment;
         $this->comment = $comment;
         $this->user = $user;
     }
 
-    public function index($userId)
+    public function index(Request $request, $userId)
     {
         if(!$user = $this->user->find($userId)){
             return redirect()->back();
         }
 
-        $comments = $user->comments()->get();
+        $comments = $user->comments()
+                            ->where('body', 'LIKE', "%{$request->search}%")
+                            ->get();
 
         return view('users.comments.index', compact('user', 'comments'));
     }
